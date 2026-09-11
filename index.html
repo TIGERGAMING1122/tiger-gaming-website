@@ -3,323 +3,438 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TIGER GAMING</title>
+
+<title>TIGER GAMING | Discord Community</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-    min-height:100vh;
-    color:white;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255,0,60,.16), transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(80,0,255,.13), transparent 30%),
-        #050507;
-    overflow-x:hidden;
+  min-height:100vh;
+  color:#fff;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(255,20,60,.22),transparent 25%),
+    radial-gradient(circle at 90% 20%,rgba(255,80,120,.12),transparent 25%),
+    radial-gradient(circle at 50% 100%,rgba(80,40,255,.18),transparent 35%),
+    linear-gradient(135deg,#060609,#10060a 45%,#07070c);
 }
 
-/* Background glow */
+/* Animated liquid light */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  filter:blur(90px);
+  pointer-events:none;
+  z-index:-1;
+  animation:float 12s ease-in-out infinite;
+}
+
 body::before{
-    content:"";
-    position:fixed;
-    width:420px;
-    height:420px;
-    left:-180px;
-    top:20%;
-    background:rgba(255,0,60,.18);
-    filter:blur(100px);
-    border-radius:50%;
-    pointer-events:none;
+  background:rgba(255,0,60,.25);
+  top:-150px;
+  left:-150px;
 }
 
 body::after{
-    content:"";
-    position:fixed;
-    width:400px;
-    height:400px;
-    right:-180px;
-    bottom:10%;
-    background:rgba(80,40,255,.15);
-    filter:blur(110px);
-    border-radius:50%;
-    pointer-events:none;
+  background:rgba(120,40,255,.18);
+  right:-150px;
+  bottom:-150px;
+  animation-delay:-6s;
 }
 
-/* Liquid Glass */
+@keyframes float{
+  0%,100%{
+    transform:translate(0,0) scale(1);
+  }
+  50%{
+    transform:translate(90px,60px) scale(1.2);
+  }
+}
+
+/* LIQUID GLASS */
 .glass{
-    background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.15);
-    box-shadow:
-        inset 0 1px 1px rgba(255,255,255,.12),
-        0 20px 60px rgba(0,0,0,.35);
-    backdrop-filter:blur(25px);
-    -webkit-backdrop-filter:blur(25px);
+  position:relative;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.16),
+      rgba(255,255,255,.055) 45%,
+      rgba(255,255,255,.025)
+    );
+
+  border:1px solid rgba(255,255,255,.20);
+
+  backdrop-filter:blur(35px) saturate(170%);
+  -webkit-backdrop-filter:blur(35px) saturate(170%);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.32),
+    inset 0 -1px 0 rgba(255,255,255,.04),
+    0 25px 70px rgba(0,0,0,.38);
+
+  overflow:hidden;
 }
 
-/* Navbar */
+/* Glass reflection */
+.glass::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(255,255,255,.20),
+      transparent 18%,
+      transparent 65%,
+      rgba(255,255,255,.06)
+    );
+}
+
+/* NAVBAR */
 .navbar{
-    position:sticky;
-    top:15px;
-    z-index:100;
-    width:92%;
-    max-width:1100px;
-    margin:auto;
-    padding:14px 22px;
-    border-radius:24px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+  position:sticky;
+  top:14px;
+  z-index:100;
+  width:92%;
+  max-width:1100px;
+  margin:14px auto;
+  padding:15px 22px;
+  border-radius:25px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
 .logo{
-    font-size:21px;
-    font-weight:900;
-    letter-spacing:2px;
+  position:relative;
+  z-index:2;
+  font-size:21px;
+  font-weight:900;
+  letter-spacing:2px;
 }
 
 .logo span{
-    color:#ff174f;
+  color:#ff315f;
+  text-shadow:0 0 20px rgba(255,49,95,.5);
 }
 
 .nav-links{
-    display:flex;
-    gap:25px;
+  position:relative;
+  z-index:2;
+  display:flex;
+  gap:25px;
 }
 
 .nav-links a{
-    color:#ddd;
-    text-decoration:none;
-    font-size:14px;
-    transition:.3s;
+  color:rgba(255,255,255,.75);
+  text-decoration:none;
+  font-size:14px;
+  transition:.3s;
 }
 
 .nav-links a:hover{
-    color:white;
+  color:#fff;
+  text-shadow:0 0 15px rgba(255,255,255,.5);
 }
 
-/* Hero */
+/* HERO */
 .hero{
-    width:92%;
-    max-width:1100px;
-    min-height:600px;
-    margin:45px auto;
-    border-radius:38px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:50px 20px;
-    position:relative;
-    overflow:hidden;
-}
+  width:92%;
+  max-width:1100px;
+  min-height:620px;
+  margin:40px auto;
+  border-radius:42px;
 
-.hero::before{
-    content:"";
-    position:absolute;
-    width:300px;
-    height:300px;
-    background:rgba(255,0,60,.13);
-    filter:blur(80px);
-    border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:50px 20px;
 }
 
 .hero-content{
-    position:relative;
-    z-index:2;
+  position:relative;
+  z-index:2;
 }
 
 .badge{
-    display:inline-block;
-    padding:9px 18px;
-    border-radius:50px;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.15);
-    font-size:12px;
-    letter-spacing:2px;
-    margin-bottom:25px;
+  display:inline-block;
+  padding:10px 20px;
+  margin-bottom:25px;
+  border-radius:50px;
+
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.20);
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.2),
+    0 8px 30px rgba(0,0,0,.2);
+
+  letter-spacing:3px;
+  font-size:12px;
 }
 
 h1{
-    font-size:clamp(48px,10vw,105px);
-    line-height:.9;
-    font-weight:1000;
-    letter-spacing:-4px;
+  font-size:clamp(55px,11vw,115px);
+  line-height:.86;
+  letter-spacing:-5px;
+  font-weight:1000;
 }
 
 h1 span{
-    background:linear-gradient(90deg,#fff,#ff315f,#fff);
-    background-size:200%;
-    -webkit-background-clip:text;
-    color:transparent;
-    animation:shine 5s linear infinite;
+  background:
+    linear-gradient(
+      90deg,
+      #fff,
+      #ff315f,
+      #ff90a8,
+      #fff
+    );
+
+  background-size:250%;
+  -webkit-background-clip:text;
+  color:transparent;
+
+  animation:shine 6s linear infinite;
 }
 
 @keyframes shine{
-    to{background-position:200% center;}
+  to{
+    background-position:250% center;
+  }
 }
 
 .hero p{
-    max-width:600px;
-    margin:25px auto;
-    color:#aaa;
-    line-height:1.7;
+  margin:28px auto;
+  max-width:650px;
+  color:rgba(255,255,255,.65);
+  font-size:18px;
+  line-height:1.7;
 }
 
+/* BUTTON */
 .btn{
-    display:inline-block;
-    margin-top:15px;
-    padding:15px 28px;
-    border-radius:18px;
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    background:rgba(255,255,255,.1);
-    border:1px solid rgba(255,255,255,.2);
-    box-shadow:0 10px 35px rgba(255,0,70,.15);
-    transition:.35s;
+  position:relative;
+  z-index:2;
+
+  display:inline-block;
+  padding:16px 30px;
+  border-radius:20px;
+
+  text-decoration:none;
+  color:#fff;
+  font-weight:bold;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.20),
+      rgba(255,255,255,.07)
+    );
+
+  border:1px solid rgba(255,255,255,.25);
+
+  backdrop-filter:blur(20px);
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.25),
+    0 12px 35px rgba(255,0,70,.16);
+
+  transition:.35s;
 }
 
 .btn:hover{
-    transform:translateY(-5px) scale(1.03);
-    background:rgba(255,20,70,.2);
-    box-shadow:0 15px 45px rgba(255,0,70,.3);
+  transform:translateY(-6px) scale(1.04);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,70,110,.35),
+      rgba(255,255,255,.10)
+    );
+
+  box-shadow:
+    0 18px 45px rgba(255,0,70,.28),
+    inset 0 1px rgba(255,255,255,.3);
 }
 
-/* Sections */
+/* SECTIONS */
 section{
-    width:92%;
-    max-width:1100px;
-    margin:80px auto;
+  width:92%;
+  max-width:1100px;
+  margin:85px auto;
 }
 
 .section-title{
-    text-align:center;
-    margin-bottom:35px;
+  text-align:center;
+  margin-bottom:38px;
 }
 
 .section-title h2{
-    font-size:38px;
+  font-size:40px;
 }
 
 .section-title p{
-    color:#888;
-    margin-top:10px;
+  color:rgba(255,255,255,.5);
+  margin-top:10px;
 }
 
-/* Cards */
+/* CARDS */
 .cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
 }
 
 .card{
-    padding:30px;
-    border-radius:28px;
-    transition:.35s;
-    position:relative;
-    overflow:hidden;
-}
+  padding:32px;
+  border-radius:30px;
+  min-height:230px;
 
-.card::after{
-    content:"";
-    position:absolute;
-    width:120px;
-    height:120px;
-    right:-50px;
-    top:-50px;
-    border-radius:50%;
-    background:rgba(255,255,255,.08);
-    filter:blur(20px);
+  transition:
+    transform .4s ease,
+    border-color .4s ease,
+    box-shadow .4s ease;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(255,255,255,.3);
+  transform:translateY(-10px);
+
+  border-color:rgba(255,255,255,.38);
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.28),
+    0 25px 60px rgba(0,0,0,.35),
+    0 0 35px rgba(255,20,70,.10);
 }
 
 .icon{
-    font-size:35px;
-    margin-bottom:18px;
+  position:relative;
+  z-index:2;
+
+  width:58px;
+  height:58px;
+
+  display:grid;
+  place-items:center;
+
+  margin-bottom:20px;
+  border-radius:18px;
+
+  font-size:27px;
+
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.18);
+}
+
+.card h3,
+.card p{
+  position:relative;
+  z-index:2;
 }
 
 .card h3{
-    margin-bottom:10px;
+  margin-bottom:10px;
+  font-size:20px;
 }
 
 .card p{
-    color:#999;
-    line-height:1.6;
+  color:rgba(255,255,255,.55);
+  line-height:1.65;
 }
 
-/* Join */
+/* JOIN SECTION */
 .join{
-    text-align:center;
-    padding:70px 20px;
-    border-radius:35px;
+  padding:75px 25px;
+  border-radius:40px;
+  text-align:center;
 }
 
 .join h2{
-    font-size:42px;
-    margin-bottom:15px;
+  position:relative;
+  z-index:2;
+  font-size:44px;
 }
 
 .join p{
-    color:#999;
-    margin-bottom:20px;
+  position:relative;
+  z-index:2;
+  color:rgba(255,255,255,.55);
+  margin:15px 0 25px;
 }
 
-/* Footer */
+/* FOOTER */
 footer{
-    text-align:center;
-    padding:40px 20px;
-    color:#666;
-    font-size:13px;
+  padding:45px 20px;
+  text-align:center;
+  color:rgba(255,255,255,.35);
+  font-size:13px;
 }
 
-/* Mobile */
+/* MOBILE */
 @media(max-width:700px){
 
-    .navbar{
-        top:8px;
-        border-radius:18px;
-    }
+  .navbar{
+    top:8px;
+    padding:14px 20px;
+    border-radius:22px;
+  }
 
-    .nav-links{
-        display:none;
-    }
+  .nav-links{
+    display:none;
+  }
 
-    .hero{
-        min-height:520px;
-        margin-top:25px;
-        border-radius:28px;
-    }
+  .hero{
+    min-height:570px;
+    margin:28px auto;
+    border-radius:32px;
+  }
 
-    h1{
-        font-size:55px;
-        letter-spacing:-3px;
-    }
+  h1{
+    font-size:62px;
+    letter-spacing:-3px;
+  }
 
-    .cards{
-        grid-template-columns:1fr;
-    }
+  .hero p{
+    font-size:16px;
+  }
 
-    section{
-        margin:60px auto;
-    }
+  .cards{
+    grid-template-columns:1fr;
+  }
 
-    .join h2{
-        font-size:32px;
-    }
+  section{
+    margin:65px auto;
+  }
+
+  .section-title h2{
+    font-size:34px;
+  }
+
+  .join{
+    padding:60px 20px;
+    border-radius:32px;
+  }
+
+  .join h2{
+    font-size:34px;
+  }
 }
 </style>
 </head>
@@ -327,97 +442,101 @@ footer{
 <body>
 
 <nav class="navbar glass">
-    <div class="logo">
-        TIGER <span>GAMING</span>
-    </div>
+  <div class="logo">
+    TIGER <span>GAMING</span>
+  </div>
 
-    <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#features">Features</a>
-        <a href="#join">Join</a>
-    </div>
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#features">Features</a>
+    <a href="#join">Join</a>
+  </div>
 </nav>
 
 <section class="hero glass" id="home">
-    <div class="hero-content">
+  <div class="hero-content">
 
-        <div class="badge">
-            🎮 WELCOME TO TIGER GAMING
-        </div>
-
-        <h1>
-            TIGER<br>
-            <span>GAMING</span>
-        </h1>
-
-        <p>
-            Gaming • Friends • Community<br>
-            Enter the world of TIGER GAMING.
-        </p>
-
-        <a class="btn" href="https://discord.gg/eQceVgW8y" target="_blank">
-            💬 JOIN DISCORD
-        </a>
-
+    <div class="badge">
+      🎮 WELCOME TO TIGER GAMING
     </div>
+
+    <h1>
+      TIGER<br>
+      <span>GAMING</span>
+    </h1>
+
+    <p>
+      Gaming • Friends • Community<br>
+      Enter the world of TIGER GAMING.
+    </p>
+
+    <a class="btn"
+       href="https://discord.gg/eQceVgW8y"
+       target="_blank">
+      💬 JOIN DISCORD
+    </a>
+
+  </div>
 </section>
 
 <section id="features">
 
-    <div class="section-title">
-        <h2>Why TIGER GAMING?</h2>
-        <p>Everything you need in one community.</p>
+  <div class="section-title">
+    <h2>Why TIGER GAMING?</h2>
+    <p>Everything you need in one community.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card glass">
+      <div class="icon">🎮</div>
+      <h3>Gaming</h3>
+      <p>
+        Play your favourite games and meet other gamers.
+      </p>
     </div>
 
-    <div class="cards">
-
-        <div class="card glass">
-            <div class="icon">🎮</div>
-            <h3>Gaming</h3>
-            <p>
-                Play your favourite games and meet other gamers.
-            </p>
-        </div>
-
-        <div class="card glass">
-            <div class="icon">👥</div>
-            <h3>Community</h3>
-            <p>
-                Make friends, chat and enjoy the community together.
-            </p>
-        </div>
-
-        <div class="card glass">
-            <div class="icon">🎙️</div>
-            <h3>Voice Chat</h3>
-            <p>
-                Join voice channels and enjoy gaming sessions with friends.
-            </p>
-        </div>
-
+    <div class="card glass">
+      <div class="icon">👥</div>
+      <h3>Community</h3>
+      <p>
+        Make friends, chat and enjoy the community together.
+      </p>
     </div>
+
+    <div class="card glass">
+      <div class="icon">🎙️</div>
+      <h3>Voice Chat</h3>
+      <p>
+        Join voice channels and enjoy gaming sessions with friends.
+      </p>
+    </div>
+
+  </div>
 </section>
 
 <section id="join">
 
-    <div class="join glass">
+  <div class="join glass">
 
-        <h2>Ready to Join?</h2>
+    <h2>Ready to Join? 🐯</h2>
 
-        <p>
-            Come and be part of the TIGER GAMING community.
-        </p>
+    <p>
+      Come and be part of the TIGER GAMING community.
+    </p>
 
-        <a class="btn" href="https://discord.gg/eQceVgW8y" target="_blank">
-            🚀 JOIN OUR DISCORD
-        </a>
+    <a class="btn"
+       href="https://discord.gg/eQceVgW8y"
+       target="_blank">
+      🚀 JOIN OUR DISCORD
+    </a>
 
-    </div>
+  </div>
 
 </section>
 
 <footer>
-    © 2026 TIGER GAMING • All Rights Reserved
+  © 2026 TIGER GAMING • Discord Community
 </footer>
 
 </body>
